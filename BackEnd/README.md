@@ -1,0 +1,3 @@
+# Yatzy
+
+This is the game Yatzy
