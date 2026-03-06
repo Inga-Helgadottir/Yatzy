@@ -18,6 +18,9 @@ public class YatzyApplication {
         Player p2 = new Player(2, "stri2ng name", 22);
         Player p3 = new Player(3, "stri3ng name", 112);
         List<Player> players = new ArrayList<>();
+        players.add(p);
+        players.add(p2);
+        players.add(p3);
         Game game = new Game(players);
         System.out.println(game);
     }
