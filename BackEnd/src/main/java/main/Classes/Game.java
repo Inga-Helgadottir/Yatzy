@@ -1,21 +1,18 @@
-package main;
-
+package main.Classes;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
 public class Game {
+    private static int nextId = 1;
     public int id;
-    public Player[] players;
-
-    public Game(int id, Player[] players) {
-        this.id = id;
-        this.players = players;
-    }
+    public List<Player> players;
 
     public Game(List<Player> players) {
-        this.players = players.toArray(new Player[0]);
+        this.players = players;
+        this.id = nextId;
+        nextId++;
     }
 
     public int getId() {
@@ -26,11 +23,11 @@ public class Game {
         this.id = id;
     }
 
-    public Player[] getPlayers() {
+    public List<Player> getPlayers() {
         return players;
     }
 
-    public void setPlayers(Player[] players) {
+    public void setPlayers(List<Player> players) {
         this.players = players;
     }
 
@@ -39,19 +36,19 @@ public class Game {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Game game = (Game) o;
-        return id == game.id && Objects.deepEquals(players, game.players);
+        return id == game.id && Objects.equals(players, game.players);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, Arrays.hashCode(players));
+        return Objects.hash(id, players);
     }
 
     @Override
     public String toString() {
         return "Game{" +
                 "id=" + id +
-                ", players=" + Arrays.toString(players) +
+                ", players=" + players +
                 '}';
     }
 }

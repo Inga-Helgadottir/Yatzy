@@ -1,21 +1,26 @@
-package main;
+package main.Classes;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class Player {
+    private static int nextId = 1;
     public int id;
     public String name;
     public int highScore;
-
-    public Player(int id, String name, int highScore) {
-        this.id = id;
-        this.name = name;
-        this.highScore = highScore;
-    }
+    public List<YatzyCard> yatzyCards;
 
     public Player(String name, int highScore) {
         this.name = name;
         this.highScore = highScore;
+        this.id = nextId;
+        nextId++;
+        yatzyCards = new ArrayList<>();
+    }
+
+    public Player(YatzyCard[] yatzyCards) {
+        this.yatzyCards = List.of(yatzyCards);
     }
 
     public int getId() {

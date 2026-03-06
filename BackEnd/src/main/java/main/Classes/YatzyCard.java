@@ -1,8 +1,9 @@
-package main;
+package main.Classes;
 import java.util.List;
 import java.util.Objects;
 
 public class YatzyCard {
+    private static int nextId = 1;
     public int id;
     public List<Player> players;
     public int ones;
@@ -12,8 +13,7 @@ public class YatzyCard {
     public int fives;
     public int sixes;
 
-    public YatzyCard(int id, List<Player> players, int ones, int twoes, int threes, int fours, int fives, int sixes) {
-        this.id = id;
+    public YatzyCard( List<Player> players, int ones, int twoes, int threes, int fours, int fives, int sixes) {
         this.players = players;
         this.ones = ones;
         this.twoes = twoes;
@@ -21,17 +21,8 @@ public class YatzyCard {
         this.fours = fours;
         this.fives = fives;
         this.sixes = sixes;
-    }
-
-    public YatzyCard(List<Player> players) {
-        this.id = id;
-        this.players = players;
-        this.ones = 0;
-        this.twoes = 0;
-        this.threes = 0;
-        this.fours = 0;
-        this.fives = 0;
-        this.sixes = 0;
+        this.id = nextId;
+        nextId++;
     }
 
     public int getId() {
