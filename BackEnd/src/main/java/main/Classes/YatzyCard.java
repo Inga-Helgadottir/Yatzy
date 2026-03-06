@@ -1,11 +1,11 @@
 package main.Classes;
-import java.util.List;
+
 import java.util.Objects;
 
 public class YatzyCard {
     private static int nextId = 1;
     public int id;
-    public List<Player> players;
+    public Player player;
     public int ones;
     public int twoes;
     public int threes;
@@ -13,14 +13,14 @@ public class YatzyCard {
     public int fives;
     public int sixes;
 
-    public YatzyCard( List<Player> players, int ones, int twoes, int threes, int fours, int fives, int sixes) {
-        this.players = players;
-        this.ones = ones;
-        this.twoes = twoes;
-        this.threes = threes;
-        this.fours = fours;
-        this.fives = fives;
-        this.sixes = sixes;
+    public YatzyCard(Player player) {
+        this.player = player;
+        this.ones = -1;
+        this.twoes = -1;
+        this.threes = -1;
+        this.fours = -1;
+        this.fives = -1;
+        this.sixes = -1;
         this.id = nextId;
         nextId++;
     }
@@ -33,12 +33,12 @@ public class YatzyCard {
         this.id = id;
     }
 
-    public List<Player> getPlayers() {
-        return players;
+    public Player getPlayer() {
+        return player;
     }
 
-    public void setPlayers(List<Player> players) {
-        this.players = players;
+    public void setPlayer(Player player) {
+        this.player = player;
     }
 
     public int getOnes() {
@@ -46,7 +46,9 @@ public class YatzyCard {
     }
 
     public void setOnes(int ones) {
-        this.ones = ones;
+        if(this.ones == -1){
+            this.ones = ones;
+        }
     }
 
     public int getTwoes() {
@@ -54,7 +56,9 @@ public class YatzyCard {
     }
 
     public void setTwoes(int twoes) {
-        this.twoes = twoes;
+        if(this.twoes == -1){
+            this.twoes = twoes;
+        }
     }
 
     public int getThrees() {
@@ -62,7 +66,9 @@ public class YatzyCard {
     }
 
     public void setThrees(int threes) {
-        this.threes = threes;
+        if(this.threes == -1){
+            this.threes = threes;
+        }
     }
 
     public int getFours() {
@@ -70,7 +76,9 @@ public class YatzyCard {
     }
 
     public void setFours(int fours) {
-        this.fours = fours;
+        if(this.fours == -1){
+            this.fours = fours;
+        }
     }
 
     public int getFives() {
@@ -78,7 +86,9 @@ public class YatzyCard {
     }
 
     public void setFives(int fives) {
-        this.fives = fives;
+        if(this.fives == -1){
+            this.fives = fives;
+        }
     }
 
     public int getSixes() {
@@ -86,7 +96,9 @@ public class YatzyCard {
     }
 
     public void setSixes(int sixes) {
-        this.sixes = sixes;
+        if(this.sixes == -1){
+            this.sixes = sixes;
+        }
     }
 
     @Override
@@ -94,11 +106,25 @@ public class YatzyCard {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         YatzyCard yatzyCard = (YatzyCard) o;
-        return id == yatzyCard.id && ones == yatzyCard.ones && twoes == yatzyCard.twoes && threes == yatzyCard.threes && fours == yatzyCard.fours && fives == yatzyCard.fives && sixes == yatzyCard.sixes && Objects.equals(players, yatzyCard.players);
+        return id == yatzyCard.id && ones == yatzyCard.ones && twoes == yatzyCard.twoes && threes == yatzyCard.threes && fours == yatzyCard.fours && fives == yatzyCard.fives && sixes == yatzyCard.sixes && Objects.equals(player, yatzyCard.player);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, players, ones, twoes, threes, fours, fives, sixes);
+        return Objects.hash(id, player, ones, twoes, threes, fours, fives, sixes);
+    }
+
+    @Override
+    public String toString() {
+        return "YatzyCard{" +
+                "id=" + id +
+                ", player=" + player +
+                ", ones=" + ones +
+                ", twoes=" + twoes +
+                ", threes=" + threes +
+                ", fours=" + fours +
+                ", fives=" + fives +
+                ", sixes=" + sixes +
+                '}';
     }
 }
