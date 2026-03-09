@@ -127,4 +127,18 @@ public class YatzyCard {
                 ", sixes=" + sixes +
                 "}";
     }
+
+    private String format(int value) {
+        return value == -1 ? " " : String.valueOf(value);
+    }
+
+    public String toStringCard() {
+        return "Player: " + player.getName() +
+                "\n1's = " + format(ones) +
+                "\n2's = " + format(twoes) +
+                "\n3's = " + format(threes) +
+                "\n4's = " + format(fours) +
+                "\n5's = " + format(fives) +
+                "\n6's = " + format(sixes);
+    }
 }
