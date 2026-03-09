@@ -1,30 +1,36 @@
-package main.Classes;
-
-import main.DTO.PlayerDTO;
-
+package main.DTO;
+import main.Classes.YatzyCard;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
-public class YatzyCard {
-    private static int nextId = 1;
+public class YatzyCardDTO {
     public int id;
-    public Player player;
     public int ones;
     public int twoes;
     public int threes;
     public int fours;
     public int fives;
     public int sixes;
+    public PlayerDTO player;
 
-    public YatzyCard(Player player) {
-        this.player = player;
-        this.ones = -1;
-        this.twoes = -1;
-        this.threes = -1;
-        this.fours = -1;
-        this.fives = -1;
-        this.sixes = -1;
-        this.id = nextId;
-        nextId++;
+    public static List<YatzyCardDTO> getDtos(List<YatzyCard> ycs){
+        List<YatzyCardDTO> ycdtos = new ArrayList<>();
+        ycs.forEach(yc -> ycdtos.add(new YatzyCardDTO(yc)));
+        return ycdtos;
+    }
+
+    public YatzyCardDTO(YatzyCard yc){
+        if(yc != null){
+            this.id = yc.getId();
+            this.ones = yc.getOnes();
+            this.twoes = yc.getTwoes();
+            this.threes = yc.getThrees();
+            this.fours = yc.getFours();
+            this.fives = yc.getFives();
+            this.sixes = yc.getSixes();
+            this.player = new PlayerDTO(yc.getPlayer());
+        }
     }
 
     public int getId() {
@@ -35,11 +41,11 @@ public class YatzyCard {
         this.id = id;
     }
 
-    public Player getPlayer() {
+    public PlayerDTO getPlayer() {
         return player;
     }
 
-    public void setPlayer(Player player) {
+    public void setPlayer(PlayerDTO player) {
         this.player = player;
     }
 
@@ -107,7 +113,7 @@ public class YatzyCard {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        YatzyCard yatzyCard = (YatzyCard) o;
+        YatzyCardDTO yatzyCard = (YatzyCardDTO) o;
         return id == yatzyCard.id && ones == yatzyCard.ones && twoes == yatzyCard.twoes && threes == yatzyCard.threes && fours == yatzyCard.fours && fives == yatzyCard.fives && sixes == yatzyCard.sixes && Objects.equals(player, yatzyCard.player);
     }
 
@@ -128,19 +134,5 @@ public class YatzyCard {
                 ", fives=" + fives +
                 ", sixes=" + sixes +
                 "}";
-    }
-
-    private String formatValueForCard(int value) {
-        return value == -1 ? " " : String.valueOf(value);
-    }
-
-    public String toStringCard() {
-        return "Player: " + player.getName() +
-                "\n1's = " + formatValueForCard(ones) +
-                "\n2's = " + formatValueForCard(twoes) +
-                "\n3's = " + formatValueForCard(threes) +
-                "\n4's = " + formatValueForCard(fours) +
-                "\n5's = " + formatValueForCard(fives) +
-                "\n6's = " + formatValueForCard(sixes);
     }
 }
