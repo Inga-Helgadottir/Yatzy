@@ -47,6 +47,6 @@ public class Player {
         return "Player{" +
                 "id=" + id +
                 ", name=" + name +
-                '}';
+                "}";
     }
 }

@@ -125,6 +125,6 @@ public class YatzyCard {
                 ", fours=" + fours +
                 ", fives=" + fives +
                 ", sixes=" + sixes +
-                '}';
+                "}";
     }
 }

@@ -14,7 +14,7 @@ public class YatzyApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(YatzyApplication.class, args);
-        System.out.println("hoihi");
+        System.out.println("-------------------------OUTPUT-------------------------");
         Player p = new Player( "string na1me");
         Player p2 = new Player( "stri2ng name");
         Player p3 = new Player( "stri3ng name");
@@ -27,9 +27,15 @@ public class YatzyApplication {
         yatzyCards.add(yc3);
         Game game = new Game(yatzyCards);
         yc.setOnes(1);
+<<<<<<< HEAD
         yc.setOnes(5); // doesn't work because the value is already set
         System.out.println(game);
         System.out.println(yc);
+=======
+        yc.setOnes(5);
+        System.out.println(game.getYatzyCards());
+        System.out.println(yc.getOnes());
+>>>>>>> MakingClasses
     }
 
 }
