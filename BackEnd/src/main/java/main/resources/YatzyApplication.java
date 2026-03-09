@@ -27,15 +27,9 @@ public class YatzyApplication {
         yatzyCards.add(yc3);
         Game game = new Game(yatzyCards);
         yc.setOnes(1);
-<<<<<<< HEAD
         yc.setOnes(5); // doesn't work because the value is already set
         System.out.println(game);
         System.out.println(yc);
-=======
-        yc.setOnes(5);
-        System.out.println(game.getYatzyCards());
-        System.out.println(yc.getOnes());
->>>>>>> MakingClasses
     }
 
 }
